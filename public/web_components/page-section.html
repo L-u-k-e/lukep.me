@@ -1,0 +1,90 @@
+<dom-module id="section-title">
+	<style>
+		:host {
+			display: block;
+			text-align: center;
+
+			padding-top: 50px;
+			padding-bottom: 20px;
+			position: relative;
+			z-index: 10;
+
+			/*set font styling with document scss*/
+		}
+		span {
+			font-family: 'Satisfy';
+			font-size: 42px;
+		}
+	</style>
+
+	<template>
+		<span>
+			<content></content>
+		</span>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'section-title',
+		});
+	</script>
+</dom-module>
+
+
+
+
+
+
+
+
+
+<dom-module id="section-content">
+	<style>
+		:host {
+			width: 100%;
+			padding-bottom: 25px;
+			flex-grow: 1;
+			z-index: 10;
+		}
+	</style>
+	<template>
+		<content></content>
+	</template>
+	<script>
+		Polymer({
+			is: 'section-content',
+		});
+	</script>
+</dom-module>
+
+
+
+
+
+
+
+
+
+<dom-module id="page-section">
+	<template>
+		<style>
+			:host {
+				display: flex;
+				flex-direction: column;
+				width: 100vw;
+				position: relative;
+
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+				z-index: 1;
+			}
+		</style>
+		<content></content>	
+	</template>
+	<script>
+		Polymer({
+			is: 'page-section',
+		});
+	</script>
+</dom-module>

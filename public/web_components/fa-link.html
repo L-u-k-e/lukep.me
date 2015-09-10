@@ -1,0 +1,33 @@
+<dom-module id="fa-link">
+	<template>
+		<style>
+			:host {
+				color: inherit;
+				text-decoration: inherit;
+				margin: 15px 35px; 
+				transition: all 0.25s linear;
+			}
+			:host(:hover) {
+				transform: scale(1.1);
+				color: #000;
+			}	
+		</style>
+		<i class$="{{fa_icon}}"></i>
+	</template>
+	<script>
+		Polymer({
+			is: 'fa-link',
+			extends: 'a',
+			properties: {
+				icon: String,
+				fa_icon: {
+					type: String,
+					computed: 'generateIconClass(icon)'
+				}
+			},
+			generateIconClass: function (icon) {
+				return 'fa fa-' + icon + ' fa-3x';
+			}
+		});
+	</script>
+</dom-module>

@@ -1,0 +1,66 @@
+<link rel="import" href="/web_components/swirl-button.html">
+<dom-module id="service-tile">
+	<style>
+		:host {
+			/*position: relative;*/
+			display: inline-flex;
+			flex: 1;
+			min-width: 420px;
+			max-width: 500px;
+			margin:25px;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			text-align: center;
+		}
+		:host > *:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			box-shadow: 0px 0px 10px;
+		}
+
+		.line {
+			width: 17%;
+			height: 4px;
+			background-color: #D44457;
+		}
+
+		.title {
+			font-size: 26px;
+			font-weight: bold;
+		}
+
+/*		:host ::content > * {
+		display: flex;
+			height: 36px;
+			align-items: center;	
+		}
+*/
+	</style>
+	<template>
+		<img src="{{img_path}}"></img>
+		<span class="title">{{title}}</span>
+		<div class="line"></div>
+		<content></content>
+		<swirl-button>Learn More</swirl-button>
+	</template>
+	<script>
+		Polymer({
+			is: 'service-tile',
+			properties: {
+				img: String,
+				img_path: {
+					type: String,
+					computed: 'getFullPath(img)'
+				}
+			},
+			getFullPath: function (img) {
+				return '/images/' + img;
+			}
+		});
+	</script>
+</dom-module>

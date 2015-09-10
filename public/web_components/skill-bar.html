@@ -1,0 +1,75 @@
+<dom-module id="skill-bar">
+	<style>
+		:host {
+			display: block;
+		}
+		
+		.skillbar-container {
+			text-align: left;
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+		
+		span {
+			z-index: 2;
+			position: relative;
+			top: 2px;
+			font-family: 'Lobster', sans-serif;
+			font-weight: 400;
+			font-size: 20px;
+		}
+
+		.skillbar-background {
+		  display: inline-block;
+		  position: relative;
+		  height:10px;
+		  width: 90%;
+		  padding-left: 12px;
+		  background-color: #fff;
+		  -webkit-border-radius: 50px;
+		  border-radius: 50px;
+		  margin-bottom: 5px; 
+		  box-shadow: inset 0px 0px 10px #888;
+		}
+	 
+		.skillbar-foreground {
+			display: inline-block;
+			position: absolute;
+			border-radius: inherit;
+			width:0;
+			top: 0;
+			left: 0;
+			background-color: #0182C6;
+			transition: width 2s;
+			height:100%;
+		}
+	</style>
+	<template>
+		<div class="skillbar-container">
+    	<span>{{label}}</span>
+    	<div class="skillbar-background">
+    		<div class="skillbar-foreground"></div>
+  		</div>
+  	</div>
+	</template>
+	<script>
+		Polymer({
+			is: 'skill-bar',
+			properties: {
+				value: String,
+				label: String
+			},
+			ready: function () {
+				var skillbar = $(Polymer.dom(this.root).querySelector('.skillbar-foreground'));
+				var percent = this.value + '%';
+				$(window).scroll(function () {
+					if(skillbar.visible()) skillbar.width(percent);
+					else skillbar.width(0);
+				});
+			}
+		});
+	</script>
+</dom-module>
+

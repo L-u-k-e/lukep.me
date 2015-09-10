@@ -1,0 +1,30 @@
+<link rel="import" href="/bower_components/iron-image/iron-image.html">
+<dom-module id="section-divider">
+	<template>
+		<style>
+			:host {
+				display: block;
+				
+				width:100vw;
+				height:25vh;
+				max-height: 200px;
+
+				position: relative;
+				background-attachment: fixed;
+				background-size: cover;
+				background-position: bottom center;
+			}
+		</style>
+	</template>
+	<script>
+		Polymer({
+			is: 'section-divider',
+			properties: {
+				img: String
+			},
+			ready: function () {
+				this.style['background-image'] = 'url(images/' + this.img +')'
+			}
+		});
+	</script>
+</dom-module>

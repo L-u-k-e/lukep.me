@@ -1,0 +1,68 @@
+<dom-module id="contact-tile">
+	<style>
+		:host {
+			display: inline-flex;
+			position: relative;
+			
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			text-align: center;
+
+			margin: 25px;
+			width: 320px;
+			height: 200px;
+			padding: 0px 5px;
+			border: 2px solid;
+	
+			transition: all 0.25s ease;
+			color: #333;
+		}
+
+		.title {
+			font-family: 'Lobster';
+			font-size: 32px;
+			display: block;
+		}
+
+		.line {
+			width: 35%;
+			height:1px;
+			background-color: #333;
+		}
+
+		i {display: block;}
+		.value {display:block;}
+
+		:host(:hover) {
+			transform: translateY(-3px);
+			border-bottom-width: 4px;
+		}
+
+
+	</style>
+	<template>
+		<i class$="{{fa_icon}}"></i>
+		<div class="line"></div>
+		<span class="title">{{title}}</span>
+		<div class="line"></div>
+		<span class="value">{{value}}</span>	
+	</template>
+	<script>
+		Polymer({
+			is: 'contact-tile',
+			properties: {
+				title: String,
+				value: String,
+				icon: String,
+				fa_icon: {
+					type: String,
+					computed: 'generateIconClass(icon)'
+				}
+			},
+			generateIconClass: function (icon) {
+				return 'fa fa-' + icon + ' fa-2x';
+			}
+		});
+	</script>
+</dom-module>

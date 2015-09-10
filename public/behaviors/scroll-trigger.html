@@ -1,0 +1,17 @@
+<script>
+	ScrollTrigger = {
+
+		properties: {
+			target: String
+		},
+		
+		listeners: {
+			click: 'scrollToTarget'
+		},
+
+		scrollToTarget: function () {
+			var ID = this.target;
+			UTILS.scrollToID(ID);
+		}
+	}	
+</script>

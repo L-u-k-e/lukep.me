@@ -1,0 +1,88 @@
+<dom-module id="project-showcase">
+	<style>
+		:host {
+			display: inline-block;
+			margin: 30px;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			width:400px;
+		}
+
+		:host > header {
+			display: block;
+			padding: 10px 15px;
+			font-weight: bold;
+			background-color:  #F5f5f5;
+		}
+		:host > header i {
+			float: right;
+			cursor: pointer;	
+		}
+
+		li {
+			list-style-type: none;
+			border-top: 1px solid #ccc;
+		}
+		li header {
+			padding: 10px 15px;
+			font-weight: bold;
+			color: #4078C0;
+			cursor: pointer;
+		}
+
+		li header .language {
+			font-weight: normal;
+			color: #333;
+			float: right;
+			font-size: 12px;	
+			font-weight: 600;
+		}
+		
+
+		li p {
+			padding: 0px 25px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-size: 12px;
+		}
+		li p.expanded {
+			white-space: normal;
+			text-overflow: visible;
+			overflow: visible;
+		}
+		
+		li:hover { cursor: pointer; }
+		li:hover header {text-decoration: underline;}
+	
+	</style>
+	<template>
+		<header> 
+			Open Source Projects
+			<i class="fa fa-{{expander}}"></i> 
+		</header>
+		<ul>	
+		<template is="dom-repeat" items="{{projects}}">
+			<li>
+				<header>
+					<span>{{item.title}}</span>
+					<span class="language">{{item.language}}</span>
+				</header>
+				<p>{{item.desc}}</p>
+			</li>
+		</template>
+		</ul>
+	</template>
+	<script>
+		Polymer({
+			is: 'project-showcase',
+			properties: {
+				projects: Array
+			},
+			ready: function () {
+
+			}
+		});
+	</script>
+</dom-module>

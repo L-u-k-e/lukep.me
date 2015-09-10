@@ -1,0 +1,31 @@
+// Font weights
+$light: 100;
+$semi-light: 300;
+$regular: 400;
+$semi-bold: 500;
+$bold: 600;
+
+//Font Sizes
+$normal: 18px;
+$semi-large: 22px;
+$large: 42px;
+$small: 12px;
+$semi-small: 14px;
+$tiny: 10px;
+
+// Base Font
+$base-font-family: 'Source Sans Pro' sans-serif;;
+$base-font-weight: $regular;
+$base-color: #222;
+$base-font-size: $normal;
+$base-large-font-size: $normal;
+$base-line-height: 1.4;
+
+// Fixed Font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+$fixed-line-height: $base-line-height;
+
+//colors
+$light-red: #D44457;
+$cool-green: #00bd9b;

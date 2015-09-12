@@ -53,7 +53,7 @@ Modules - reusable parts of our design
   position: fixed;
   width: 90%;
   max-width: 400px;
-  right: 5%;
+  right: 2%;
   bottom: 20px;
   border-radius: 0.25em;
   box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
@@ -224,7 +224,7 @@ Modules - reusable parts of our design
 #trigger {
   position: fixed;
   bottom: 20px;
-  right: 5%;
+  right: 2%;
   width: 44px;
   height: 44px;
   background: white;
@@ -477,7 +477,6 @@ Modules - reusable parts of our design
 			ready: function () {
 				// browser window scroll (in pixels) after which the "menu" link is shown
 				var offset = 300;
-				console.log(this);
 				var navigationContainer = Polymer.dom(this),
 					  mainNavigation = Polymer.dom(this.$.menu),
 					  trigger = Polymer.dom(this.$.trigger);
@@ -498,7 +497,6 @@ Modules - reusable parts of our design
 				});
 
 				function checkMenu() {
-					console.log('hi');
 					if ($(window).scrollTop() > offset && !$(navigationContainer).hasClass('is-fixed')) {
 						mainNavigation.classList.remove('is-hidden');
 						navigationContainer.classList.add('is-fixed');
@@ -522,6 +520,9 @@ Modules - reusable parts of our design
 			},
 			scrollToTarget: function (event) {
 				UTILS.scrollToID(event.model.get('item.id'));
+        //close the menu
+        Polymer.dom(this.$.trigger).classList.remove('menu-is-open');
+        Polymer.dom(this.$.menu).classList.remove('is-visible');  
 			}
 
 		});

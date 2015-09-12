@@ -1,4 +1,5 @@
-/*(function () {
+<script>
+DATA = (function () {
 	
 	var all_sections = [
 		{title: 'top',      id: 'banner'},
@@ -123,28 +124,19 @@
 	];
 
 
-	var api = Object.freeze({
-		sections: {
-			with_banner: all_sections,
-			without_banner: all_sections.slice(1)
-		},
-		info: info,
-		lifeSkills: lifeSkills,
-		careerSkills: careerSkills,
-		projects: projects,
-		data: api //'data_consumer' gets you the whole API
-	});
-
-
-	//publish subscriptions 
-	//(one-way binding and does not work with elements inserted later)
-	document.addEventListener('WebComponentsReady',function () {
-		for (var item in api) {
-			$('.' + item + '_consumer').each(function (i, element) { 
-				element[item] = api[item];
-			});
+	var api = {
+		ready: function () {
+			this.sections = {
+				with_banner: all_sections,
+				without_banner: all_sections.slice(1)
+			};
+			this.info = info;
+			this.lifeSkills = lifeSkills;
+			this.careerSkills = careerSkills;
+			this.projects = projects;
 		}
-	});
-		return api;
-		
-}());*/
+	};
+
+	return api;
+}());
+</script>

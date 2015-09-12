@@ -1,0 +1,143 @@
+<link rel="import" href="/behaviors/data.html">
+<link rel="import" href="/behaviors/masonize.html">
+<dom-module id="home-page">
+	<template>
+
+    <floating-menu sections="{{sections.with_banner}}" id="menu"></floating-menu>
+
+    <page-section id="banner">
+      <span class="title"> Luke Parzych </span>
+      <hr>
+      <span class="sub-title">Virtual Architect</span>
+      <div class="button-container">
+        <template is="dom-repeat" items="{{sections.without_banner}}">
+          <pulse-button title="{{item.title}}" target="{{item.id}}"></pulse-button>  
+        </template>
+      </div>
+    </page-section>
+  
+
+    <page-section id="profile">
+      <section-title>About Me</section-title>
+      <section-content>
+        <img class="profile-pic" src="/images/avatar_square.jpg"></img>
+        <div class="text">
+          <p> My name is Luke. I am a <span>{{info.age}}</span> year old software developer, currently based in Rome, NY (United States). My passion is making things that put a smile on your face.
+          </p>
+
+          <p> I believe that the importance of foresight increases dramatically as the tools you build increase in power and complexity. For this reason, I am drawn to the architectural aspect of software design. Additionally, I am great at putting myself in the shoes of the end user. This comes across in both the API's and the UI's that I create. 
+          </p>
+
+          <p>
+            I am currently a handful of credits short of attaining a Bachelors degree in Computer Science from SUNY Polytechnic Institue. 
+          </p>
+
+          <p>
+            I am currently focused on creating web applications and expirimenting with new technologies. 
+          </p>
+
+          <p>
+          These are my current life stats:
+          </p>
+
+          <div class="skillbars">
+            <template is="dom-repeat" items="{{lifeSkills}}">
+              <skill-bar value="{{item.value}}" label="{{item.label}}"></skill-bar>
+            </template>
+          </div>
+        </div>
+
+      </div>
+      </section-content>
+    </page-section>
+
+
+    <page-section id="resume">     
+      <section-title>Skills and Projects</section-title>     
+      <section-content>
+
+        <div class="grid">
+
+          <template is="dom-repeat" items="{{careerSkills}}">
+            <skill-category class="grid-item" title="{{item.header}}" skills="{{item.skills}}"></skill-category>
+          </template>
+
+          <project-showcase class="grid-item" projects="{{projects}}"></project-showcase>
+        </div>
+
+      </section-content>
+    </page-section>
+
+
+    <section-divider img="swimming.png"></section-divider>
+
+
+	  <page-section id="services">
+	    <section-title> Services </section-title>
+	    <section-content>
+	      
+	      <service-tile img="web-design-thumb.jpg" title="Web Development">
+	        I can enhance your existing site or build you a new one from the ground up. 
+	      </service-tile>
+	      
+	      <service-tile img="hire-me-thumb.jpg" title="Hire Me">
+	        Looking for some talent? I'm looking for work.
+	      </service-tile>
+
+	    </section-content>
+	  </page-section>
+
+
+    <page-section id="contact">
+      <section-title>Contact</section-title>
+      <section-content>
+        <div class="quote">
+          <span class="quote-content">"The amateur tweets. The pro works."</span>
+          <br>
+          <span class="quote-source"> - Steven Pressfield </span>
+        </div>
+
+        <contact-tile title="location" icon="globe" value="{{info.address.fullstring}}"></contact-tile>
+        <contact-tile title="phone" icon="mobile" value="{{info.phone}}"></contact-tile>
+        <contact-tile title="email" icon="paper-plane-o" value="{{info.email}}"></contact-tile>
+      
+        <div class="media-links">
+          <template is="dom-repeat" items="{{info.medias}}">
+            <a is="fa-link" target="_blank" href="{{item.href}}" icon="{{item.icon}}"></a>
+          </template>
+        </div>
+      </section-content>
+    </page-section>
+	
+	</template>
+	<script>
+		Polymer({
+			is: 'home-page',
+
+			behaviors: [DATA],
+
+      listeners: {
+        'resume.dom-change': '_gridReflow'
+      },
+
+      _gridReflow: function (event) {
+        var local_target = Polymer.dom(event).localTarget;
+        if(!local_target.classList.contains('grid-item')) return;
+        if (!this.grid) {
+          this.grid = new Masonry(this.$.resume.querySelector('.grid'), {
+            columnWidth: local_target,
+            itemSelector: '.grid-item',
+            isFitWidth: true,
+            transitionDuration:0
+          });
+        }
+        else {
+          console.log(local_target);
+          this.grid.layout();
+        }
+      }
+
+
+		});
+	</script>
+</dom-module>

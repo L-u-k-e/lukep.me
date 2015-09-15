@@ -46,13 +46,14 @@
 		<span class="title">{{title}}</span>
 		<div class="line"></div>
 		<content></content>
-		<swirl-button>Learn More</swirl-button>
+		<swirl-button on-click="redirect">Learn More</swirl-button>
 	</template>
 	<script>
 		Polymer({
 			is: 'service-tile',
 			properties: {
 				img: String,
+				route: String,
 				img_path: {
 					type: String,
 					computed: 'getFullPath(img)'
@@ -60,6 +61,9 @@
 			},
 			getFullPath: function (img) {
 				return '/images/' + img;
+			},
+			redirect: function () {
+				page.redirect('/' + this.route);
 			}
 		});
 	</script>

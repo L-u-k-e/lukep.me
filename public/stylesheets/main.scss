@@ -140,3 +140,20 @@ body{
 		}
 	}
 }
+
+#hire-me-page {
+	section-content {
+
+		@include narrow {
+			width: 100%;
+			min-width: 100%;
+		}
+
+		ul {
+			@include narrow {
+				width: 100%;
+				min-width: 100%;
+			}
+		}
+	}
+}

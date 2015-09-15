@@ -1,0 +1,47 @@
+<link rel="import" href="/bower_components/paper-input/paper-input.html">
+<link rel="import" href="/bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="/bower_components/paper-card/paper-card.html">
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<dom-module id="contact-form">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+
+			paper-input {
+				width: 50%;
+				min-width: 250px;
+			}
+			#message {
+				margin-bottom: 20px;
+			}
+			#buttons {
+				display: flex;
+				align-items: flex-end;
+			}
+			paper-card {
+				width: 100%;
+			}
+			swirl-button {
+				display: inline-block;
+				margin-right: 14px;
+			}
+		</style>
+		<paper-card elevation=0 heading="Send me a message">
+			<paper-input label="Name"></paper-input>
+			<paper-input label="Email"></paper-input>
+			<paper-input label="Company (optional)"></paper-input>
+			<paper-textarea rows=5 id="message" label="Message"></paper-textarea>
+			<div id="buttons">	
+				<swirl-button> Send Message </swirl-button>
+				<paper-button raised> Clear Form </paper-button>
+			</div>
+		</paper-card>
+	</template>
+	<script>
+		Polymer({
+			is: 'contact-form'
+		});
+	</script>
+</dom-module>

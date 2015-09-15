@@ -1,0 +1,85 @@
+<link rel="import" href="/bower_components/marked-element/marked-element.html">
+<dom-module id="hire-me-page">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+			section-content {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+			#text {
+				display:block;
+				width:75%;
+				min-width: 500px;
+				text-align: justify;
+			}
+			ul {
+				margin-left: 50px;
+				width:70%;
+			}
+			ul li {
+				margin-bottom: 18px;
+			}
+			contact-form {
+				margin-bottom: 50px;
+				margin-top: 50px;
+			}
+		</style>
+		<secondary-page>
+		<page-section id="hire-me-page">
+			<section-title> Lets Work Together </section-title>
+			<section-content>
+				<div id="text">
+					<p>
+						You've probably landed on this page because you want some help turning an idea into a reality. Maybe your an individual or maybe you're recruiting on behalf of a larger company. Maybe your idea is just taking off, maybe its already manifested into a full-fledged product or maybe it's still in conception.
+					</p>
+					<p>
+						This page is here to act as a screen, to give you an idea of whether or not my skills can be of service to you.
+					</p>
+					<p>	  
+						I believe I bring a unique blend of problem solving skills and appreciation for the user's experience that other developers aren't typically able to cultivate. I have fallen in love with coding. It's a flow state activity that allows me to excercise my mind. More than that though, to me, a programming language serves as a medium of <em>creation</em>. I study my medium and I love it, I am forever driven to make the code that I produce clean, maintainable, scaleable and beautiful. At the core of my passion however, is the knowledge that with enough work, programming is a medium that can turn thoughts and ideas into actual value, real products that can demonstrate influence over the malleable world we let them loose in. This marraige of creating something great and <em>doing it right</em> is what drives me. It is my vision and it is my love. 
+					</p>
+					<p>
+						This vision facilitates the creation of products that sit on a higher caliber than most people are willing to put in the work to create. Put simply, I take pride in my work.  
+					</p>
+					<hr>
+					<p>
+						Now that you've got an idea of what i'm all about, lets find out if my skills can help you fufill your dreams. 
+					</p>
+					<p>
+						First of all, if you're just looking for a single developer to help you build or improve your website in some way, then check out my web-development page. I go into more detail about the specific services that I offer there. 
+					</p>
+					<p>
+						If you're looking to build something bigger, let me list some of my interests, then you can decide if it's worth meeting up with me in person:
+					</p>
+					<ul>
+						<li>
+							I am interested in working on the application layer. Although systems-level programming intrigues me, it's not the direction I'm looking to take at the moment. (That's not to say I can't drop down to C when the performance is necessary)
+						</li>
+						<li>
+							Money talks, but what drives me farther is the ability to work towards something I can take pride in, so being a part of a team that is building something interesting or meaningful is important to me. 
+						</li>
+						<li>
+							I really enjoy working with the web. It's not going away any time <em>ever</em> and, as a platform, it's becoming stronger and stronger each year.
+						</li>
+						<li>
+							In regards to working on the back-end vs the front-end, I honestly enjoy working on both. This is something that's context sensitive, so we'd have to discuss specifics to see where I could be of the most value.  
+						</li>
+					</ul>
+					<contact-form></contact-form>
+				</div>
+			</section-content>
+		</page-section>
+		</secondary-page>
+	</template>
+	<script>
+		Polymer({
+			is: 'hire-me-page'
+
+		});
+	</script>
+</dom-module>

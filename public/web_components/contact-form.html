@@ -8,10 +8,13 @@
 			:host {
 				display: block;
 			}
-
 			paper-input {
 				width: 50%;
 				min-width: 250px;
+				--paper-input-container-focus-color: var(--color-azure-blue);
+			}
+			paper-textarea {
+				--paper-input-container-focus-color: var(--color-azure-blue);
 			}
 			#message {
 				margin-bottom: 20px;
@@ -20,12 +23,28 @@
 				display: flex;
 				align-items: flex-end;
 			}
+			#submit {
+				--paper-button: {
+					background-color: var(--color-azure-blue);
+					color: #fff;
+				};
+			}
 			paper-card {
 				width: 100%;
 			}
 			swirl-button {
 				display: inline-block;
 				margin-right: 14px;
+			}
+
+			@media (max-width: 500px) {
+				paper-card {
+					padding:10px;
+				}
+				paper-input {
+					width: 100%;
+					min-width: 100%;
+				}
 			}
 		</style>
 		<paper-card elevation=0 heading="Send me a message">
@@ -34,7 +53,7 @@
 			<paper-input label="Company (optional)"></paper-input>
 			<paper-textarea rows=5 id="message" label="Message"></paper-textarea>
 			<div id="buttons">	
-				<swirl-button> Send Message </swirl-button>
+				<paper-button raised id="submit"> Send Message </paper-button>
 				<paper-button raised> Clear Form </paper-button>
 			</div>
 		</paper-card>

@@ -4,7 +4,21 @@
 		<style>
 			:host {
 				display: block;
+				@apply(--base-font-mixin);
 			}
+			p {
+				margin-bottom: 15px;
+			}
+
+			@media (max-width: 500px) {
+				#text {
+					width: 100%;
+				}
+				ul {
+					width: 100%;
+				}
+			}
+
 			section-content {
 				display: flex;
 				flex-wrap: wrap;
@@ -46,7 +60,9 @@
 					<p>
 						This vision facilitates the creation of products that sit on a higher caliber than most people are willing to put in the work to create. Put simply, I take pride in my work.  
 					</p>
+
 					<hr>
+
 					<p>
 						Now that you've got an idea of what i'm all about, lets find out if my skills can help you fufill your dreams. 
 					</p>
@@ -70,6 +86,7 @@
 							In regards to working on the back-end vs the front-end, I honestly enjoy working on both. This is something that's context sensitive, so we'd have to discuss specifics to see where I could be of the most value.  
 						</li>
 					</ul>
+			
 					<contact-form></contact-form>
 				</div>
 			</section-content>

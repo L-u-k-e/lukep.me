@@ -1,0 +1,58 @@
+<dom-module id="web-dev-page">
+	<template>
+		<style>
+			:host {
+				display: block;
+				@apply(--base-font-mixin);
+			}
+
+			#services {
+				display: flex;
+				justify-content: center;
+				align:items: center;
+				flex-wrap: wrap;
+			}
+		</style>
+		
+
+
+
+		<secondary-page>
+			<page-section id="web-dev-page">
+				<section-title> Lets Build Something Awesome! </section-title>
+				<section-content>
+					<p>If you're a small business or an individual looking to estabish or revamp your web presence, I can help! </p>
+
+					Here are some services I offer:
+					<div id="services">
+					<!--<ul>
+						<li> 
+							<header>UI Enhancement</header> 
+							<p>
+								Website looking stale? Want a pro to give it a revamp? I'm here for you. 
+							</p>
+						</li>
+
+						<li>
+							<header> Responsive Conversion </header>
+							<p>
+								The average user interacts with about 3 different devices a day. Having a User Interface that can adapt to different screen sizes is absolutely imperitive if you want to maximize revenue.  
+							</p>
+							<p> Even if your website wasn't build with responsiveness in mind, I can reverse engineer your code and bake responsiveness into the core of your website. </p>
+						<li>
+					</ul>-->
+
+					<flip-card title="UI Enhancement" icon="paint-brush">
+						Hi There!
+					</flip-card>
+					</div>
+				</section-content>
+			</page-section>
+		</secondary-page>
+	</template>
+	<script>
+		Polymer({
+			is: 'web-dev-page'
+		});
+	</script>
+</dom-module>

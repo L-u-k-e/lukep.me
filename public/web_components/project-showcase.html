@@ -23,6 +23,7 @@
 		li {
 			list-style-type: none;
 			border-top: 1px solid #ccc;
+			padding-bottom: 10px;
 		}
 		li header {
 			padding: 10px 15px;
@@ -47,7 +48,7 @@
 			text-overflow: ellipsis;
 			font-size: 12px;
 		}
-		li p.expanded {
+		li p.minus {
 			white-space: normal;
 			text-overflow: visible;
 			overflow: visible;
@@ -60,7 +61,7 @@
 	<template>
 		<header> 
 			Open Source Projects
-			<i class="fa fa-{{expander}}"></i> 
+			<i class$="{{fa_expander}}" on-click="_toggleExpansion"></i> 
 		</header>
 		<ul>	
 		<template is="dom-repeat" items="{{projects}}">
@@ -69,7 +70,7 @@
 					<span>{{item.title}}</span>
 					<span class="language">{{item.language}}</span>
 				</header>
-				<p>{{item.desc}}</p>
+				<p class$="{{expander}}">{{item.desc}}</p>
 			</li>
 		</template>
 		</ul>
@@ -78,10 +79,22 @@
 		Polymer({
 			is: 'project-showcase',
 			properties: {
-				projects: Array
+				projects: Array,
+				expander: {
+					type: String,
+					value: 'plus'
+				},
+				fa_expander: {
+					type: String,
+					computed: '_getIconClass(expander)'
+				}
 			},
-			ready: function () {
-
+			_getIconClass: function (expander) {
+				return 'fa fa-' + expander;
+			},
+			_toggleExpansion: function () {
+				if (this.expander == 'plus') this.expander = 'minus';
+				else this.expander = 'plus';
 			}
 		});
 	</script>

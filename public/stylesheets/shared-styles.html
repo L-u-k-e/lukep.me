@@ -1,0 +1,47 @@
+<style is="custom-style">
+	:root {
+
+		/* Font weights */
+		--font-weight-light: 100;
+		--font-weight-semi-light: 300;
+		--font-weight-regular: 400;
+		--font-weight-semi-bold: 500;
+		--font-weight-bold: 600;
+
+
+		/* Font Sizes */
+		--font-size-normal: 18px;
+		--font-size-semi-large: 22px;
+		--font-size-large: 42px;
+		--font-size-small: 12px;
+		--font-size-semi-small: 14px;
+		--font-size-tiny: 10px;
+
+
+		/* Font Stacks */
+		--font-stack-base: 'Source Sans Pro' sans-serif;
+
+
+		/* colors */
+		--color-light-red:  #D44457;
+		--color-cool-green: #00bd9b;
+		--color-azure-blue: #0182C6;
+		--color-soft-black: #333;
+
+
+		/* Mixins */
+		--base-font-mixin: {
+			font-family: var(--font-stack-base);
+			font-weight: var(-font-weight-regular);
+			color: var(--color-soft-black);
+			font-size: var(--font-size-normal);
+			line-height: 1.1;
+		};
+
+		--fixed-background-mixin: {
+			background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+		};
+	}
+</style>		

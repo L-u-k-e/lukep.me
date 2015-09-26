@@ -1,6 +1,149 @@
 <link rel="import" href="/behaviors/data.html">
 <dom-module id="home-page">
 	<template>
+    <style>
+      :host {
+        @apply(--base-font-mixin);
+      }
+      p {
+        margin-bottom: 15px;
+      }
+
+
+
+
+
+      #banner {
+        background-image: url('/images/mountain-sky.png'); 
+        @apply(--fixed-background-mixin);
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+      #banner .title {
+        font-size: 6em;
+        font-family: 'Damion';
+      }
+      #banner hr {
+        display: block;
+        width: 35%;
+      }
+      #banner .sub-title {
+        font-size: 3em;
+        font-family: 'Ubuntu';
+        font-weight: 300;
+      }
+      #banner .button-container {
+        position: absolute;
+        bottom: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        left: 0;
+
+      } 
+      #banner pulse-button {
+        margin: 0px 17px;
+      }
+
+
+
+
+
+      #profile section-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+      }
+      #profile section-content > * {
+        min-width: 420px;
+        max-width: 500px;
+        height: 500px;
+        min-height: 420px;
+        flex: 1;
+        margin: 15px;
+      }
+      #profile .profile-pic {
+        width: 100%;
+        box-shadow: 0px 0px 10px 0px;
+      }
+      #profile .skillbars {
+        margin-top: 25px;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+      }
+
+
+
+
+
+      #resume section-content {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+      }
+
+
+
+
+
+      #services section-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+
+
+
+
+      #contact section-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      #contact .quote { 
+        font-family: 'Open Sans';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 30px;
+        text-align: center;
+        width: 100%;
+        align-self: flex-start;
+      }
+      #contact .media-links {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        align-self: flex-end;
+      }
+      
+
+
+
+
+
+      @media(max-width: 500px) {
+        #banner .button-container {
+          display: none;
+        }
+        #profile section-content>* {
+          width: 100%;
+        }
+      }
+
+
+
+
+      
+    </style>
 
     <floating-menu sections="{{sections.with_banner}}" id="menu"></floating-menu>
 

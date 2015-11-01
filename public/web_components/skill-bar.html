@@ -1,3 +1,4 @@
+  <link rel="import" href="/stylesheets/shared-styles.html">
 <dom-module id="skill-bar">
 	<style>
 		:host {
@@ -41,8 +42,9 @@
 			width:0;
 			top: 0;
 			left: 0;
-			background-color: #0182C6;
-			transition: width 2s;
+			background-color: var(--primary-color);
+			/*background-color: #0182C6;*/
+			transition: width 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 			height:100%;
 		}
 	</style>

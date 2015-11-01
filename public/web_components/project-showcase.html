@@ -8,7 +8,11 @@
 			border-radius: 3px;
 			width:400px;
 		}
-
+		@media(max-width: 500px) {
+			:host {
+				width: 100%;
+			};
+		}
 		:host > header {
 			display: block;
 			padding: 10px 15px;
@@ -65,7 +69,7 @@
 		</header>
 		<ul>	
 		<template is="dom-repeat" items="{{projects}}">
-			<li>
+			<li link="{{item.link}}" on-tap="_openTab">
 				<header>
 					<span>{{item.title}}</span>
 					<span class="language">{{item.language}}</span>
@@ -95,6 +99,10 @@
 			_toggleExpansion: function () {
 				if (this.expander == 'plus') this.expander = 'minus';
 				else this.expander = 'plus';
+				this.fire('expansion-toggled', {current_state: this.expander});
+			},
+			_openTab: function (e) {
+				window.open(e.currentTarget.link, '_blank');
 			}
 		});
 	</script>

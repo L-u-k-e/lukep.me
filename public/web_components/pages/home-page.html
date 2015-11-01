@@ -1,3 +1,4 @@
+<link rel="import" href="../../bower_components/neon-animation/neon-shared-element-animatable-behavior.html">
 <link rel="import" href="/behaviors/data.html">
 <dom-module id="home-page">
 	<template>
@@ -10,19 +11,17 @@
       }
 
 
-
-
-
       #banner {
-        background-image: url('/images/mountain-sky.png'); 
+        background-image: url('/images/fall-dark.jpg'); 
         @apply(--fixed-background-mixin);
         justify-content: center;
         align-items: center;
-        color: #fff;
+        color: rgba(255,255,255,0.8);
       }
       #banner .title {
         font-size: 6em;
         font-family: 'Damion';
+        text-align: center
       }
       #banner hr {
         display: block;
@@ -60,13 +59,10 @@
       #profile section-content > * {
         min-width: 420px;
         max-width: 500px;
-        height: 500px;
-        min-height: 420px;
         flex: 1;
         margin: 15px;
       }
-      #profile .profile-pic {
-        width: 100%;
+      #profile #profile-pic {
         box-shadow: 0px 0px 10px 0px;
       }
       #profile .skillbars {
@@ -134,7 +130,15 @@
         #banner .button-container {
           display: none;
         }
+        #banner .title {
+          font-size: 3em;
+        }
+        #banner .sub-title {
+          font-size: 1.5em;
+        }
+
         #profile section-content>* {
+          min-width: 100%;
           width: 100%;
         }
       }
@@ -144,7 +148,7 @@
 
       
     </style>
-
+    <div id="container">
     <floating-menu sections="{{sections.with_banner}}" id="menu"></floating-menu>
 
     <page-section id="banner">
@@ -162,7 +166,7 @@
     <page-section id="profile">
       <section-title>About Me</section-title>
       <section-content>
-        <img class="profile-pic" src="/images/avatar_square.jpg"></img>
+        <img id="profile-pic" src="/images/avatar_square.jpg"></img>
         <div class="text">
           <p> My name is Luke. I am a <span>{{info.age}}</span> year old software developer, currently based in Rome, NY (United States). My passion is making things that put a smile on your face.
           </p>
@@ -185,8 +189,6 @@
             </template>
           </div>
         </div>
-
-      </div>
       </section-content>
     </page-section>
 
@@ -201,21 +203,21 @@
             <skill-category class="grid-item" title="{{item.header}}" skills="{{item.skills}}"></skill-category>
           </template>
 
-          <project-showcase class="grid-item" projects="{{projects}}"></project-showcase>
+          <project-showcase class="grid-item" projects="{{projects}}" on-expansion-toggled="refitGrid"></project-showcase>
         </div>
 
       </section-content>
     </page-section>
 
 
-    <section-divider img="swimming.png"></section-divider>
+    <section-divider img="flower-neutral-dark.jpg"></section-divider>
 
 
 	  <page-section id="services">
 	    <section-title> Services </section-title>
 	    <section-content>
 	      
-	      <service-tile img="web-design-thumb.jpg" title="Web Development" route="web-development">
+	      <service-tile id="webDev" img="web-design-thumb.jpg" title="Web Development" route="web-development">
 	        I can enhance your existing site or build you a new one from the ground up. 
 	      </service-tile>
 	      
@@ -247,18 +249,21 @@
         </div>
       </section-content>
     </page-section>
-	
+	  </div>
 	</template>
 	<script>
 		Polymer({
 			is: 'home-page',
 
-			behaviors: [DATA],
+			behaviors: [ 
+        DATA, 
+        Polymer.NeonAnimatableBehavior,
+        Polymer.NeonSharedElementAnimatableBehavior
+      ],
 
       listeners: {
         'resume.dom-change': '_gridReflow'
       },
-
       _gridReflow: function (event) {
         var local_target = Polymer.dom(event).localTarget;
         if(!local_target.classList.contains('grid-item')) return;
@@ -271,9 +276,11 @@
           });
         }
         else {
-          console.log(local_target);
           this.grid.layout();
         }
+      },
+      refitGrid: function () {
+        this.grid.layout();
       }
 
 

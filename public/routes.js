@@ -1,7 +1,10 @@
 (function () {
 	var app = document.querySelector('#app');
 	app.selected = 0;
-
+	app.setSelected = function(val) {
+		document.body.scrollTop = 0;
+		this.selected = val;
+	};
 	//Define Routes
 	page('/', home);
 	page('/hire-me', hireMe);
@@ -11,15 +14,17 @@
 	page({ hashbang: true });
 
 	function home() {
-		app.selected = 0;
+		app.setSelected(0);
+		var home = document.querySelector('home-page')
+		home.refitGrid();
 	}
 
 	function hireMe() {
-		app.selected = 1;
+		app.setSelected(1);
 	}
 
 	function webDev() {
-		app.selected = 2;
+		app.setSelected(2);
 	}
 
 }());

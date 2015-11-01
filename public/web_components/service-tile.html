@@ -16,7 +16,11 @@
 		:host > *:not(:last-child) {
 			margin-bottom: 10px;
 		}
-
+		@media(max-width: 500px) {
+			:host {
+				width: 100%;
+			};
+		}
 		img {
 			width: 100%;
 			height: auto;
@@ -34,12 +38,12 @@
 			font-weight: bold;
 		}
 
-/*		:host ::content > * {
-		display: flex;
+		::content > * {
+		  display: flex;
 			height: 36px;
 			align-items: center;	
 		}
-*/
+
 	</style>
 	<template>
 		<img src="{{img_path}}"></img>

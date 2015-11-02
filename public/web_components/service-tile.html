@@ -2,7 +2,6 @@
 <dom-module id="service-tile">
 	<style>
 		:host {
-			/*position: relative;*/
 			display: inline-flex;
 			flex: 1;
 			min-width: 420px;
@@ -18,7 +17,9 @@
 		}
 		@media(max-width: 500px) {
 			:host {
+				min-width: 100%;
 				width: 100%;
+				margin: 25px 0px;
 			};
 		}
 		img {

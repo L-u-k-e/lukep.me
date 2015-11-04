@@ -1,0 +1,37 @@
+<dom-module id="service-item">
+  <template>
+    <style>
+      :host {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 50px;
+        box-sizing: border-box;
+      }
+      img {
+        width: 175px;
+      }
+      span {
+        margin-top: 35px;
+        font-family: 'Satisfy';
+        font-size: 32px;
+
+      }
+    </style>
+    <img src="[[_getPath(icon)]]"></img>
+    <span>[[title]]</span> 
+  </template>
+  <script> 
+    Polymer({
+      is: 'service-item',
+      properties: {
+        icon: String,
+        title: String
+      },
+      _getPath: function (icon) {
+        return "/images/icons/" + icon + ".svg";
+      }
+    });
+  </script>
+</dom-module>

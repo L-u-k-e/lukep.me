@@ -94,9 +94,14 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
-        align-items: center;
+        align-items: baseline;
+        align-content: space-around;
       }
-
+      #services service-item {
+        width: 50%;
+        height: 50%;
+        min-width: 400px;
+      }
 
 
 
@@ -166,7 +171,7 @@
   
 
     <page-section id="profile">
-      <section-title>About Me</section-title>
+      <section-title>What I'm About</section-title>
       <section-content>
         <img id="profile-pic" src="/images/avatar_square.jpg"></img>
         <div class="text">
@@ -216,23 +221,17 @@
 
 
 	  <page-section id="services">
-	    <section-title> Services </section-title>
+	    <section-title> Some Services I Offer </section-title>
 	    <section-content>
-	      
-	      <service-tile id="webDev" img="web-design-thumb.jpg" title="Web Development" route="web-development">
-	        I can enhance your existing site or build you a new one from the ground up. 
-	      </service-tile>
-	      
-	      <service-tile img="hire-me-thumb.jpg" title="Hire Me" route="hire-me">
-	        Looking for some talent? I'm looking for work.
-	      </service-tile>
-
+        <template is="dom-repeat" items="{{services}}">
+          <service-item icon="[[item.icon]]" title="[[item.title]]">[[item.desc]]</service-item>
+        </template>
 	    </section-content>
 	  </page-section>
 
 
     <page-section id="contact">
-      <section-title>Contact</section-title>
+      <section-title>Let's Get In Touch</section-title>
       <section-content>
         <div class="quote">
           <span class="quote-content">"The amateur tweets. The pro works."</span>

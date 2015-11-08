@@ -51,13 +51,13 @@ Modules - reusable parts of our design
 :host ul {
   /* mobile first */
   position: fixed;
-  width: 90%;
-  max-width: 400px;
+  width: 96%;
+  max-width: 500px;
   right: 2%;
   bottom: 20px;
   border-radius: 0.25em;
   /*box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);*/
-  box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
+  box-shadow: 0 0 10px rgba(41, 43, 86, 0.4);
   background: white;
   visibility: hidden;
   /* remove overflow:hidden if you want to create a drop-down menu - but then remember to fix/eliminate the list items animation */
@@ -132,29 +132,25 @@ Modules - reusable parts of our design
   padding: 1.6em;
   border-bottom: 1px solid #eff2f6;
 }
+@media(max-height: 400px) {
+  :host li a {
+    padding: 1.3em 1.6em;
+  }
+}
+@media(max-height: 365px) {
+  :host li a {
+    padding: 1.1em 1.6em;
+  }
+}
+@media(max-height: 320px) {
+  :host li a {
+    padding: 1em 1.6em;
+  }
+}
 :host li:last-child a {
   border-bottom: none;
 }
 @media only screen and (min-width: 1170px) {
-  /* Display navigation top right. Not necessary as I have my own banner navigation
-  :host ul { 
-    position: absolute;
-    width: auto;
-    max-width: none;
-    bottom: auto;
-    top: 36px;
-    background: transparent;
-    visibility: visible;
-    box-shadow: none;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: all 0s;
-    -moz-transition: all 0s;
-    transition: all 0s;
-  }*/
   :host li {
     display: inline-block;
   }

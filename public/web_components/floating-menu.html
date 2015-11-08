@@ -30,15 +30,15 @@ Primary style
 :host {
   font-size: 100%;
   font-family: "Source Sans Pro", sans-serif;
-  color: #2c3e51;
-  background-color: #2c3e51;
+  color: #292B56;
+  background-color: #292B56;
   cursor: pointer;
   position: relative;
   z-index: 1000;
 }
 
 :host a {
-  color: #e84a64;
+  color: #292B56;
   text-decoration: none;
 }
 
@@ -56,6 +56,7 @@ Modules - reusable parts of our design
   right: 2%;
   bottom: 20px;
   border-radius: 0.25em;
+  /*box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);*/
   box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
   background: white;
   visibility: hidden;
@@ -175,7 +176,7 @@ Modules - reusable parts of our design
     top: auto;
     background: white;
     visibility: hidden;
-    box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
+    box-shadow: 0 0 10px rgba(41, 43, 86, 0.4);
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);
@@ -227,9 +228,10 @@ Modules - reusable parts of our design
   right: 2%;
   width: 44px;
   height: 44px;
-  background: white;
+  background: #292B56;
   border-radius: 0.25em;
-  box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
+  box-shadow: 0 0 10px rgba(77, 254, 185, 0.4);/*
+  box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);*/
   /* image replacement */
   overflow: hidden;
   text-indent: 100%;
@@ -242,7 +244,8 @@ Modules - reusable parts of our design
   display: block;
   width: 20px;
   height: 2px;
-  background: #e84a64;
+  background: #4DFEB9;
+  /*background: #e84a64;*/
   top: 50%;
   margin-top: -1px;
   left: 50%;
@@ -288,6 +291,7 @@ Modules - reusable parts of our design
 }
 #trigger.menu-is-open {
   box-shadow: none;
+  background: #fff;
 }
 #trigger.menu-is-open span {
   background: rgba(232, 74, 100, 0);

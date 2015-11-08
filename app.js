@@ -1,19 +1,10 @@
 var express = require('express'),
 		path = require('path'),
-		sass = require('node-sass-middleware'),
 		app = express(),
 		server;
 	      	
 //run setup script
 require(path.join(__dirname, 'setup'));
-
-//compile sass
-app.use(sass({
-	src: path.join(__dirname, 'public/stylesheets'),
-	dest: path.join(__dirname, 'public/stylesheets/compiled_css'),
-	outputStyle: 'compressed',
-	prefix: '/stylesheets/compiled_css'
-}));
 
 //set up static file serving
 app.use(express.static(__dirname + '/public'));

@@ -7,20 +7,33 @@
         justify-content: space-around;
         align-items: center;
         padding: 50px;
+        text-align: center;
         box-sizing: border-box;
+        @apply(--base-font-mixin);
       }
       img {
         width: 175px;
+        height: 175px;
+        margin: 35px 0px;
       }
       span {
-        margin-top: 35px;
-        font-family: 'Satisfy';
+        font-width: 500;
         font-size: 32px;
-
+      }
+      div {
+        max-width: 475px;
+      }
+      @media(max-width: 500px) {
+        :host {
+          padding: 50px 0px;
+        };
       }
     </style>
-    <img src="[[_getPath(icon)]]"></img>
     <span>[[title]]</span> 
+    <img src="[[_getPath(icon)]]"></img>
+    <div>
+      <content></content>
+    </div>
   </template>
   <script> 
     Polymer({

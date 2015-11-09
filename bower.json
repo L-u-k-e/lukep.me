@@ -2,7 +2,7 @@
   "name": "website",
   "version": "0.0.0",
   "authors": [
-    "Lucas Parzych <parzycl1@sunyit.edu>"
+    "Lucas Parzych <lukeepar@gmail.com>"
   ],
   "description": "personal-website",
   "main": "app.js",
@@ -11,9 +11,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "df-visible": "customd/jquery-visible#~1.2.0",
@@ -30,7 +28,7 @@
     "neon-elements": "PolymerElements/neon-elements#~1.0.0",
     "paper-elements": "PolymerElements/paper-elements#~1.0.5",
     "platinum-elements": "PolymerElements/platinum-elements#~1.2.0",
-    "polymer": "~1.1.1",
+    "polymer": "~1.2.1",
     "underscore": "~1.8.3"
   }
 }

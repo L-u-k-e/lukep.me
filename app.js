@@ -2,9 +2,6 @@ var express = require('express'),
 		path = require('path'),
 		app = express(),
 		server;
-	      	
-//run setup script
-require(path.join(__dirname, 'setup'));
 
 //set up static file serving
 app.use(express.static(__dirname + '/public'));

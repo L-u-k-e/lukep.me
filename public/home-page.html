@@ -1,19 +1,19 @@
 <!-- styles -->
-<link rel="import" href="/stylesheets/shared-styles.html">
+<link rel="import" href="stylesheets/shared-styles.html">
 <!-- behaviors -->
-<link rel="import" href="/behaviors/data.html">
-<link rel="import" href="/behaviors/scroll-trigger.html">  
+<link rel="import" href="behaviors/data.html">
+<link rel="import" href="behaviors/scroll-trigger.html">  
 <!-- elements -->
-<link rel="import" href="/web_components/floating-menu.html">
-<link rel="import" href="/web_components/page-section.html">
-<link rel="import" href="/web_components/pulse-button.html">
-<link rel="import" href="/web_components/skill-bar.html">
-<link rel="import" href="/web_components/skill-category/skill-category.html">
-<link rel="import" href="/web_components/project-showcase.html">
-<link rel="import" href="/web_components/section-divider.html">
-<link rel="import" href="/web_components/service-item.html">
-<link rel="import" href="/web_components/contact-tile.html">
-<link rel="import" href="/web_components/fa-link.html">
+<link rel="import" href="web_components/floating-menu.html">
+<link rel="import" href="web_components/page-section.html">
+<link rel="import" href="web_components/pulse-button.html">
+<link rel="import" href="web_components/skill-bar.html">
+<link rel="import" href="web_components/skill-category/skill-category.html">
+<link rel="import" href="web_components/project-showcase.html">
+<link rel="import" href="web_components/section-divider.html">
+<link rel="import" href="web_components/service-item.html">
+<link rel="import" href="web_components/contact-tile.html">
+<link rel="import" href="web_components/fa-link.html">
 
 <dom-module id="home-page">
 	<template>
@@ -21,6 +21,9 @@
       :host {
         @apply(--base-font-mixin);
         background-color: white;
+      }
+      #container {
+        background-color: #fff;
       }
       p {
         margin-bottom: 15px;
@@ -43,7 +46,7 @@
         top: 0;
         left: 0;
         background-color: white;
-        background: url('/images/low_poly_planet.png') no-repeat center center;
+        background: url('/images/low_poly_planet.jpg') no-repeat center center;
         background-size: cover;
         will-change: transform; /* creates a new paint layer */
         z-index: -1;

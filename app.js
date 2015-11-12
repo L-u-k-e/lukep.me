@@ -4,7 +4,7 @@ var express = require('express'),
 		server;
 
 //set up static file serving
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public', {index: 'index.html'}));
 
 //listen
 server = app.listen(3000, function () {

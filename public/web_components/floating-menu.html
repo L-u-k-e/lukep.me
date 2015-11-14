@@ -132,6 +132,9 @@ Modules - reusable parts of our design
   padding: 1.6em;
   border-bottom: 1px solid #eff2f6;
 }
+:host li a:hover {
+  color: #00bd9b;
+}
 @media(max-height: 400px) {
   :host li a {
     padding: 1.3em 1.6em;
@@ -159,9 +162,6 @@ Modules - reusable parts of our design
     padding: .4em;
     margin-left: 1.6em;
     border-bottom: none;
-  }
-  :host li a:hover {
-    color: #00bd9b;
   }
   :host(.is-fixed) ul {
     /* when the user scrolls down, the navigation moves to the bottom right in Fixed position - as on touch devices */

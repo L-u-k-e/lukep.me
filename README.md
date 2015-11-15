@@ -1,7 +1,7 @@
 # lukep.me
 Personal Website
 
-The production version is simply an nginx server set up to serve my index file statically. 
+The production backend is just an nginx serving up the index file statically 
 
 
 #TODO:

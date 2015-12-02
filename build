@@ -6,3 +6,4 @@ cp -r public/images bundle
 vulcanize --inline-scripts --inline-css --strip-comments public/index.html > bundle/index.build.html
 tar -zcf build.tar.gz bundle/*
 rm -rf bundle/
+scp build.tar.gz luke@lukep.me:~/

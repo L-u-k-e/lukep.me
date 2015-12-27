@@ -7,7 +7,7 @@ var express = require('express'),
 app.use(express.static(__dirname + '/public', {index: 'index.html'}));
 
 //listen
-server = app.listen(3000, function () {
+server = app.listen(8000, function () {
 	var host = server.address().address;
 	var port = server.address().port;
 

@@ -72,20 +72,41 @@
 <dom-module id="page-section">
 	<template>
 		<style>
+			/*
+				The wrapper is necessary due to an IE 11-10 bug where flex items
+				aren't positioned correctly becasue they don't know the height of their
+				parent. IE needs an explicit height value. If you nest flex box's though, 
+				the issue doesn't occur.
+				https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items 
+			*/
 			:host {
 				display: flex;
 				flex-direction: column;
+				background-color: white;
+			}
+			#wrapper {
+				display: flex;
+        flex-direction: column;
 				position: relative;
 				width: 100%;
+				max-width: 100%;
 				box-sizing: border-box;
-				padding: 0px 15px;
+				padding: 0px 10px;
 				align-items: center;
 				justify-content: center;
-				min-height: 100vh;
+				min-height: 100vh !important;
 				z-index: 1;
+				background-color: white;
+
+				@apply(--wrapper-mixin);
+			}
+			#wrapper:before {
+				@apply(--wrapper-before-mixin);
 			}
 		</style>
-		<content></content>	
+		<div id="wrapper">
+			<content></content>	
+		</div>
 	</template>
 	<script>
 		Polymer({

@@ -27,8 +27,18 @@ time, mark, audio, video {
     background:transparent;
 }
 
+html {
+    width: 100%;
+    background: black; 
+    position: relative;
+}
+
 body {
+    min-width: 100%;
+    position: relative;
     line-height:1;
+    overflow-y: scroll;
+    background: white;
 }
 
 article,aside,details,figcaption,figure,

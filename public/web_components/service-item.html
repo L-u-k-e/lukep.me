@@ -2,14 +2,22 @@
   <template>
     <style>
       :host {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
         padding: 50px;
         text-align: center;
         box-sizing: border-box;
         @apply(--base-font-mixin);
+
+        display: -webkit-inline-flex;
+        -webkit-flex-direction: column;
+        -webkit-justify-content: space-around;
+        -webkit-align-items: center;
+        
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+   
       }
       img {
         width: 175px;

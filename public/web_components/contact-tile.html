@@ -1,12 +1,19 @@
 <dom-module id="contact-tile">
 	<style is="custom-style">
 		:host {
-			display: inline-flex;
+  		
 			position: relative;
+
+			display: -webkit-inline-flex;  
+			-webkit-flex-direction: column;
+			-webkit-justify-content: space-around;
+			-webkit-align-items: center;
 			
+			display: inline-flex;
 			flex-direction: column;
 			justify-content: space-around;
 			align-items: center;
+			
 			text-align: center;
 
 			margin: 25px;

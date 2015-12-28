@@ -3,11 +3,11 @@
  <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <!-- metatag so the page doesn't look zoomed out on high resolution devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Lucas parzych</title>
+
   <!-- fonts -->
-  <link href='//fonts.googleapis.com/css?family=Damion|Ubuntu:400,300italic|Roboto:400,500,300|Lobster|Source+Sans+Pro:400,600|Satisfy' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,500,300|Lobster|Source+Sans+Pro:400,600|Satisfy|Open Sans:300,700' rel='stylesheet' type='text/css'>
   
   <!--Font Awesome -->
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
@@ -27,17 +27,46 @@
   
   <!-- main element -->
   <link rel="import" href="home-page.html">
-</head>
- 
-  <title>Lucas parzych</title>
+
+  <style>
+    body.loading #splash {
+      visibility: visible;
+    }
+    #splash {
+      visibility: hidden;
+
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 100vh;
+      z-index:10000;
+      
+      background-color: #292B56;
+      font-family: 'Open Sans';
+      font-size: 54px;
+      font-width: 700px;
+      color: #00bd9b;
+
+      display: -webkit-flex;
+      -webkit-justify-content: center;
+      -webkit-align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 
  </head>
- <body>
+ <body class="loading">
+     <script>
+      window.addEventListener('WebComponentsReady', function (event) {
+        document.body.classList.remove('loading');
+      });
+    </script>
+    <div id="splash">Loading...</div>
+
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="bower_components/df-visible/jquery.visible.min.js"></script>
  
     <home-page></home-page>
-    
   </body>
 </html>

@@ -33,6 +33,7 @@
       }
 
       #banner {
+
         --wrapper-mixin: {
           display: -webkit-flex;
           display: flex;
@@ -41,6 +42,7 @@
           position: relative; /* added for pseudo-element */
           z-index: 1;
         };
+
         --wrapper-before-mixin: {
           content: ' ';
           position: fixed;  /*instead of background-attachment*/
@@ -49,31 +51,38 @@
           top: 0;
           left: 0;
        
-          background: url('/images/coast.jpg') no-repeat center center;
+          background: url('/images/earth_night.jpg') no-repeat center center;
           background-size: cover;
           will-change: transform; /* creates a new paint layer */
           z-index: -1;
         };
+
       }
 
       #banner .title {
-        font-size: 6em;
-        font-family: 'Damion';
-        font-weight: 400;
+        font-size: 60px;
+        font-family: 'Open sans';
+        font-weight: 700;
         text-align: center;
+       
       }
+
       #banner .hr {
         display: block;
-        height:2px;
+        height:1px;
         width: 35%;
         margin: 10px 0px;
-        background-color: #fff;
+        text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        background: #4DFEB9;
       }
+
       #banner .sub-title {
-        font-size: 3em;
-        font-family: 'Ubuntu';
+        font-size: 32px;
+        font-family: 'Open sans';
+
         font-weight: 300;
       }
+
       #banner .button-container {
         position: absolute;
         bottom: 10%;
@@ -88,9 +97,13 @@
         justify-content: center;
         align-items: center;
       } 
+
       #banner pulse-button {
         margin: 0px 17px;
         z-index: 20;
+        text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        box-shadow:  4px 4px 0px rgba(0,0,0,0.1);
+        color: #4DFEB9;
       }
 
 
@@ -108,16 +121,19 @@
         justify-content: space-around;
         align-items: center;
       }
+
       #profile section-content > * {
         min-width: 420px;
-        max-width: 550px;
+        max-width: 500px;
         margin: 15px;
+        -webkit-flex-shrink: 1;
+        flex-shrink: 1;
       }
+
       #profile #profile-pic {
         box-shadow: 0px 0px 10px 0px;
-        min-height: 420px;
-        max-height: 550px;
       }
+
       #profile .skillbars {
         margin-top: 25px;
         
@@ -220,10 +236,10 @@
           display: none;
         }
         #banner .title {
-          font-size: 3em;
+          font-size: 34px;
         }
         #banner .sub-title {
-          font-size: 1.5em;
+          font-size: 22px;
         }
 
         #profile section-content>* {
@@ -240,17 +256,20 @@
           font-size: 24px
         }
       }
+
       @media (max-width: 400px) {
         #contact .quote {
           font-size: 18px;
         }
       }
-      @media (min-width: 500px) and (max-width: 900px) {
-        #banner .title {
-          font-size: 4.5em;
+
+      @media (max-width: 1000px) {
+        #profile section-content > * {
+          width: 100%;
+          max-width: 700px;
         }
-        #banner .sub-title {
-          font-size: 2em;
+        #profile #profile-pic {
+          max-width: 550px;
         }
       }
 
@@ -328,7 +347,7 @@
     </page-section>
 
 
-    <section-divider img="coast.jpg"></section-divider>
+    <section-divider img="ny_night.jpg"></section-divider>
 
 
 	  <page-section id="services">

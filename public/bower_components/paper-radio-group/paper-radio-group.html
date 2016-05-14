@@ -43,6 +43,11 @@ Radio-button-groups can be made optional, and allow zero buttons to be selected:
 See <a href="paper-radio-button">paper-radio-button</a> for more
 information about `paper-radio-button`.
 
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--paper-radio-group-item-padding` | The padding of the item | `12px`
+
 @group Paper Elements
 @element paper-radio-group
 @hero hero.svg
@@ -50,20 +55,19 @@ information about `paper-radio-button`.
 -->
 
 <dom-module id="paper-radio-group">
-  <style>
-    :host {
-      display: inline-block;
-    }
-
-    :host ::content > * {
-      padding: 12px;
-    }
-  </style>
-
   <template>
-      <content id="items" select="*"></content>
-  </template>
+    <style>
+      :host {
+        display: inline-block;
+      }
 
+      :host ::content > * {
+        padding: var(--paper-radio-group-item-padding, 12px);
+      }
+    </style>
+
+    <content id="items" select="*"></content>
+  </template>
 </dom-module>
 
 <script>
@@ -139,7 +143,8 @@ information about `paper-radio-button`.
           if (this.allowEmptySelection) {
             value = '';
           } else {
-            oldItem.checked = true;
+            if (oldItem)
+              oldItem.checked = true;
             return;
           }
         }
@@ -164,7 +169,7 @@ information about `paper-radio-button`.
         newIndex = (newIndex - 1 + length) % length;
       } while (this.items[newIndex].disabled)
 
-      this.select(this._indexToValue(newIndex));
+      this._itemActivate(this._indexToValue(newIndex), this.items[newIndex]);
     },
 
     /**
@@ -179,7 +184,7 @@ information about `paper-radio-button`.
         newIndex = (newIndex + 1 + length) % length;
       } while (this.items[newIndex].disabled)
 
-      this.select(this._indexToValue(newIndex));
+      this._itemActivate(this._indexToValue(newIndex), this.items[newIndex]);
     },
   });
 </script>

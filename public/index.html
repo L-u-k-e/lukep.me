@@ -16,19 +16,22 @@
   <link rel="stylesheet" href="stylesheets/reset.css">
   
   <!--Custom Libraries -->
-  <script src="custom_libraries/eve.js"></script>
-  <script src="custom_libraries/utils.js"></script>
+  <script src="custom_libraries/eve.js" async></script>
+  <script src="custom_libraries/utils.js" async></script>
   
   <!-- JS polyfills for the webcomponents specs -->
-  <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+  <script src="bower_components/webcomponentsjs/webcomponents.min.js" async></script>
 	
   <!-- Polymer -->
-	<link rel="import" href="bower_components/polymer/polymer.html">
+	<link rel="import" href="bower_components/polymer/polymer.html" async>
   
   <!-- main element -->
-  <link rel="import" href="home-page.html">
+  <link rel="import" href="home-page.html" async>
 
   <style>
+    html {
+      background-color: #292B56;
+    }
     body.loading #splash {
       visibility: visible;
     }
@@ -57,7 +60,7 @@
  </head>
  <body class="loading">
      <script>
-      window.addEventListener('WebComponentsReady', function (event) {
+      window.addEventListener('DOMContentLoaded', function (event) {
         document.body.classList.remove('loading');
       });
     </script>

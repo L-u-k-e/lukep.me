@@ -24,5 +24,8 @@
     "polymer": "~1.2.3",
     "underscore": "~1.8.3",
     "webcomponentsjs": "~0.7.18"
+  },
+  "resolutions": {
+    "iron-image": "^1.2.0"
   }
 }

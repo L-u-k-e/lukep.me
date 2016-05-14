@@ -305,7 +305,7 @@
       <section-content>
         <img id="profile-pic" src="/images/avatar.jpg"></img>
         <div class="text">
-          <p> My name is Luke. I am a <span>{{info.age}}</span> year old software developer, currently based in Rome, NY (United States). My passion is developing web applications that put a smile on your face. I hold a <b>Bachelor of Computer Science</b> from <a href="https://sunypoly.edu/apps/catalog/undergrad/2014-2015/courses/computer-science/">SUNY Polytechnic Institute.</a> 
+          <p> My name is Luke. I am a <span>{{info.age}}</span> year old software developer, currently based in New York State (USA). My passion is developing web applications that put a smile on your face. I hold a <b>Bachelor of Computer Science</b> from <a href="https://sunypoly.edu/apps/catalog/undergrad/2014-2015/courses/computer-science/">SUNY Polytechnic Institute.</a> 
           </p>
 
           <p>I have to say, I'm lucky to have stumbled upon this profession. I can't help but crack a smile when I see globs of text turn into tangible products. 
@@ -364,9 +364,9 @@
           <span class="quote-source"> - Steven Pressfield </span>
         </div>
 
-        <contact-tile title="location" icon="globe" value="{{info.address.fullstring}}"></contact-tile>
-        <contact-tile title="phone" icon="mobile" value="{{info.phone}}"></contact-tile>
+        <contact-tile title="location" icon="globe" value="{{info.address}}"></contact-tile>
         <contact-tile title="email" icon="paper-plane-o" value="{{info.email}}"></contact-tile>
+        <contact-tile title="phone" icon="mobile" value="{{info.phone}}"></contact-tile>
       
         <div class="media-links">
           <template is="dom-repeat" items="{{info.medias}}">

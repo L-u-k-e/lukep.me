@@ -3,7 +3,7 @@
 echo 'inlining/concatenating...'
 mkdir bundle
 cp public/bower.json bundle
-cp -r public/images bundle
+cp -r public/assets bundle
 vulcanize --inline-scripts --inline-css --strip-comments public/index.html > bundle/index.build.html
 
 echo 'building/xfering tarball...'

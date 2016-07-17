@@ -14,6 +14,8 @@
 <link rel="import" href="web_components/service-item.html">
 <link rel="import" href="web_components/contact-tile.html">
 <link rel="import" href="web_components/fa-link.html">
+<link rel="import" href="web_components/resume-card.html">
+
 
 <dom-module id="home-page">
 	<template>
@@ -337,7 +339,7 @@
           </template>
 
           <project-showcase class="grid-item" projects="{{projects}}" on-expansion-toggled="_refitGrid"></project-showcase>
-          <resume-card></resume-card>
+          <resume-card class="grid-item"></resume-card>
         </div>
 
       </section-content>

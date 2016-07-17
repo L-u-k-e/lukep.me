@@ -51,7 +51,7 @@
           top: 0;
           left: 0;
        
-          background: url('/images/earth_night.jpg') no-repeat center center;
+          background: url('/assets/earth_night.jpg') no-repeat center center;
           background-size: cover;
           will-change: transform; /* creates a new paint layer */
           z-index: -1;
@@ -304,7 +304,7 @@
     <page-section id="profile">
       <section-title>What I'm About</section-title>
       <section-content>
-        <img id="profile-pic" src="/images/avatar.jpg"></img>
+        <img id="profile-pic" src="/assets/avatar.jpg"></img>
         <div class="text">
           <p> My name is Luke. I am a <span>{{info.age}}</span> year old software developer, currently based in New York State (USA). My aim is to develop impactful web applications that can (hopefully) put a smile on your face. I hold a <b>Bachelor of Computer Science</b> from <a href="https://sunypoly.edu/apps/catalog/undergrad/2014-2015/courses/computer-science/">SUNY Polytechnic Institute.</a> 
           </p>
@@ -337,6 +337,7 @@
           </template>
 
           <project-showcase class="grid-item" projects="{{projects}}" on-expansion-toggled="_refitGrid"></project-showcase>
+          <resume-card></resume-card>
         </div>
 
       </section-content>

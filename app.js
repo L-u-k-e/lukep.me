@@ -1,7 +1,7 @@
 var express = require('express'),
-		path = require('path'),
-		app = express(),
-		server;
+	path = require('path'),
+	app = express(),
+	server;
 
 //set up static file serving
 app.use(express.static(__dirname + '/public', {index: 'index.html'}));

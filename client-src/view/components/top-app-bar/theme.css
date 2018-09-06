@@ -1,0 +1,18 @@
+.topAppBar {
+  background-color: transparent !important;
+  color: var(--mdc-theme-text-primary-on-light) !important;
+
+  & .topAppBarRow {
+    height: auto;
+    padding: 8px;
+    & .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+
+    & .navigationButton:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+}

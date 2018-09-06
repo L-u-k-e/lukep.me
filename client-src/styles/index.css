@@ -1,0 +1,20 @@
+@import 'material-components-web/dist/material-components-web.min.css';
+@import 'reset';
+@import 'mdc-overrides';
+
+html,
+body,
+#root {
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+.material-icons {
+  user-select: none;
+}

@@ -1,3 +1,28 @@
-/public/bower_components
+# ***********
+# osx cruft
+# ***********
+.DS_Store
 
+
+# ************
+# IDE/editor configs
+# ************
+.idea
+.vscode
+.history
+
+
+# ************
+# package dependency directory for JS projects
+# ************
 node_modules
+
+# ***********
+# Secrets
+# ***********
+secrets
+
+# ***********
+# Client app build directory
+# ***********
+client-build

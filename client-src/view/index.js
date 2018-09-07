@@ -5,6 +5,7 @@ import { themr } from 'react-css-themr';
 import TopView from './components/top-view';
 import TopAppBar from './components/top-app-bar';
 import Particles from './components/particles';
+import AboutView from './components/about-view';
 import baseTheme from './theme.css';
 
 
@@ -22,6 +23,7 @@ function View(props) {
       <TopAppBar />
       <Particles />
       <TopView />
+      <AboutView />
     </div>
   );
 }

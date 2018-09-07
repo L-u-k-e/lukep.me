@@ -1,0 +1,10 @@
+.aboutView {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  & .aboutContent {
+    padding: 24px;
+    width: 100%;
+    max-width: 960px;
+  }
+}

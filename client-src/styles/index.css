@@ -1,3 +1,4 @@
+@import 'material-colors/dist/colors.var.css';
 @import 'material-components-web/dist/material-components-web.min.css';
 @import 'reset';
 @import 'mdc-overrides';

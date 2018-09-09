@@ -153,10 +153,11 @@ const webpackConfig = {
       template: paths.appHtml,
     }),
     new CopyWebpackPlugin([
-      { from: paths.appWebManifest },
-      { from: `${paths.appPublic}/*.png` },
-      { from: `${paths.appPublic}/*.svg` },
-      { from: `${paths.appPublic}/*.ico` },
+      paths.appWebManifest,
+      `${paths.appPublic}`,
+      `${paths.appPublic}`,
+      `${paths.appPublic}`,
+      `${paths.appPublic}`,
     ]),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),

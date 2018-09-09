@@ -38,20 +38,14 @@ function Particles(props) {
             value: 50
           },
           size: {
-            value: 2
+            value: 4,
+            random: true
           },
           color: {
             value: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a']
-          }
+          },
+          line_linked: { enable: false, distance: 50, color: '#000000', opacity: 0.5, width: 1 }
         },
-        interactivity: {
-          events: {
-            onhover: {
-              enable: true,
-              mode: 'repulse'
-            }
-          }
-        }
       }}
     />
   );

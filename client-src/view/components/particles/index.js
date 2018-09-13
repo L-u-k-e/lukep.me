@@ -35,7 +35,7 @@ function Particles(props) {
       params={{
         particles: {
           number: {
-            value: 50
+            value: 500
           },
           size: {
             value: 4,

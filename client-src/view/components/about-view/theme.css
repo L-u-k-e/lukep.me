@@ -5,65 +5,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding-top: 72px; */
 
   & .aboutContent {
-    padding: 24px;
     width: 100%;
-    max-width: 1040px;
-  }
-
-  & .qualifications {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
-  & .header {
-    margin-bottom: 24px;
-  }
-
-  & .about {
-    margin-bottom: 24px;
+    max-width: 1600px;
   }
 
   & .workAndEducation {
-    width: 50%;
-    min-width: 200px;
-    max-width: 480px;
-    padding-right: 8px;
-    flex: 1;
-    width: 100%;
-
-    & .work {
-      margin-bottom: 24px;
-    }
-
     & .infoBlock {
       margin-bottom: 24px;
     }
-  }
-
-  & .tech {
-    max-width: 480px;
-    flex: 1;
-    width: 100%;
-    margin-bottom: 32px;
-
-    & .chip {
-      margin: 4px;;
+    & .work {
+      margin-bottom: 16px;
     }
   }
 
-  & .links {
-    & .linkButton {
-      margin-bottom: 24px;
-      & .icon {
-        margin-left: 8px;
+  & .techAndLinks {
+    & .tech {
+      margin-bottom: 40px;
+      & .chips {
+        margin-left: -8px;
       }
-      &:first-child {
-        margin-right: 40px;
+    }
+    & .links {
+      & .linkButton {
+        margin-bottom: 24px;
+        & .icon {
+          margin-left: 8px;
+        }
+        &:first-child {
+          margin-right: 40px;
+        }
       }
     }
   }

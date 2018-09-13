@@ -5,9 +5,10 @@ import classNames from 'classnames';
 // import { connect } from 'react-redux';
 import { themr } from 'react-css-themr';
 import { Typography } from 'rmwc/Typography';
-import { Chip, ChipText } from 'rmwc/Chip';
+import { Chip, ChipText, ChipSet } from 'rmwc/Chip';
 import { Button } from 'rmwc/Button';
 import { Icon } from 'rmwc/Icon';
+import { Grid, GridCell, GridInner } from 'rmwc/Grid';
 // import {  } from 'redux/action-creators';
 // import {  } from 'redux/selectors';
 import wrapWithFunctionChildComponent from 'view/libraries/wrap-with-function-child-component';
@@ -38,84 +39,107 @@ function AboutView(props) {
 
   return (
     <div className={classNames(className, theme.aboutView)}>
-      <div className={theme.aboutContent}>
-
-        <div className={theme.header}>
+      <Grid className={theme.aboutContent}>
+        <GridCell
+          className={theme.header}
+          mobile={4}
+          tablet={8}
+          desktop={12}
+        >
           <Typography use="headline4">
             {'Hey, I\'m Luke'}
           </Typography>
-        </div>
+        </GridCell>
 
-        <div className={theme.about}>
-          <Typography use="body1">
-            {'I\'m an engineer who specializes in building progressive web applications. I\'m currently working for a Biotech company in Boston. We\'re hoping to change the future of Cell Culture. '}
-          </Typography>
-        </div>
+        <GridCell
+          className={theme.about}
+          mobile={4}
+          tablet={8}
+          desktop={12}
+        >
+          <GridInner>
+            <GridCell
+              mobile={4}
+              tablet={8}
+              desktop={8}
+            >
+              <Typography use="body1">
+                {'I\'m an engineer who specializes in building progressive web applications. I\'m currently working for a Biotech company in Boston. We\'re hoping to change the future of Cell Culture.'}
+              </Typography>
+            </GridCell>
+          </GridInner>
+        </GridCell>
+        <GridCell
+          className={theme.workAndEducation}
+          mobile={4}
+          tablet={4}
+          desktop={4}
+        >
+          <div className={theme.work}>
+            <Typography use="overline">
+              {'work experience'}
+            </Typography>
+            <br />
 
-        <div className={theme.qualifications}>
-
-          <div className={theme.workAndEducation}>
-
-            <div className={theme.work}>
-              <Typography use="overline">
-                {'work experience'}
+            <div className={theme.infoBlock}>
+              <Typography use="body1" className={theme.title}>
+                {'Software Engineer/ Lead Web Applications Developer'}
               </Typography>
               <br />
-
-              <div className={theme.infoBlock}>
-                <Typography use="body1" className={theme.title}>
-                  {'Software Engineer/ Lead Web Applications Developer'}
-                </Typography>
-                <br />
-                <Typography use="body2" className={theme.company}>
-                  Thrive Bioscience
-                </Typography>
-                <br />
-                <Typography use="body2" className={theme.timeFrame}>
-                  {'2016 - present'}
-                </Typography>
-              </div>
-
-              <div className={theme.infoBlock}>
-                <Typography use="body1" className={theme.title}>
-                  {'Programmer & Analyst'}
-                </Typography>
-                <br />
-                <Typography use="body2" className={theme.company}>
-                  AmeriCU Credit Union
-                </Typography>
-                <br />
-                <Typography use="body2" className={theme.timeFrame}>
-                  {'2015 - 2016'}
-                </Typography>
-              </div>
+              <Typography use="body2" className={theme.company}>
+                Thrive Bioscience
+              </Typography>
+              <br />
+              <Typography use="body2" className={theme.timeFrame}>
+                {'2016 - present'}
+              </Typography>
             </div>
 
-            <div className={theme.education}>
-              <Typography use="overline">
-                {'Education'}
+            <div className={theme.infoBlock}>
+              <Typography use="body1" className={theme.title}>
+                {'Programmer & Analyst'}
               </Typography>
               <br />
-
-              <div className={theme.infoBlock}>
-                <Typography use="body1" className={theme.title}>
-                  {'Bachelor of Computer Science'}
-                </Typography>
-                <br />
-                <Typography use="body2" className={theme.company}>
-                  SUNY Polytechnic Instutute
-                </Typography>
-              </div>
+              <Typography use="body2" className={theme.company}>
+                AmeriCU Credit Union
+              </Typography>
+              <br />
+              <Typography use="body2" className={theme.timeFrame}>
+                {'2015 - 2016'}
+              </Typography>
             </div>
           </div>
 
-          <div className={theme.techAndLinks}>
+          <div className={theme.education}>
+            <Typography use="overline">
+              {'Education'}
+            </Typography>
+            <br />
 
-            <div className={theme.tech}>
-              <Typography use="overline">
-                {'favorite tech'}
+            <div className={theme.infoBlock}>
+              <Typography use="body1" className={theme.title}>
+                {'Bachelor of Computer Science'}
               </Typography>
               <br />
+              <Typography use="body2" className={theme.company}>
+                SUNY Polytechnic Instutute
+              </Typography>
+            </div>
+          </div>
+        </GridCell>
+
+        <GridCell
+          className={theme.techAndLinks}
+          mobile={4}
+          tablet={8}
+          desktop={8}
+        >
+          <div className={theme.tech}>
+            <Typography use="overline">
+              {'favorite tech'}
+            </Typography>
+            <br />
+            <ChipSet className={theme.chips}>
               <Chip className={theme.chip}> JavaScript </Chip>
               <Chip className={theme.chip}> Amazon Web Services </Chip>
               <Chip className={theme.chip}> <ChipText> Ruby </ChipText> </Chip>
@@ -135,21 +159,21 @@ function AboutView(props) {
               <Chip className={theme.chip}> <ChipText> RabbitMQ </ChipText> </Chip>
               <Chip className={theme.chip}> <ChipText> Webpack 4 </ChipText> </Chip>
               <Chip className={theme.chip}> <ChipText> Chrome Dev Tools </ChipText> </Chip>
-            </div>
-
-            <div className={theme.links}>
-              <Button raised className={theme.linkButton} onClick={onViewResume}>
-                View My Resume
-                <Icon className={theme.icon}>picture_as_pdf</Icon>
-              </Button>
-              <Button className={theme.linkButton}>
-                View My Work
-                <Icon className={theme.icon}>arrow_downward</Icon>
-              </Button>
-            </div>
+            </ChipSet>
           </div>
-        </div>
-      </div>
+
+          <div className={theme.links}>
+            <Button raised className={theme.linkButton} onClick={onViewResume}>
+              Read My Resume
+              <Icon className={theme.icon}>picture_as_pdf</Icon>
+            </Button>
+            <Button className={theme.linkButton}>
+              View My Work
+              <Icon className={theme.icon}>arrow_downward</Icon>
+            </Button>
+          </div>
+        </GridCell>
+      </Grid>
     </div>
   );
 }

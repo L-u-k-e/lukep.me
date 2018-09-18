@@ -9,9 +9,9 @@ import { Typography } from 'rmwc/Typography';
 import { getBrowser } from 'redux/selectors';
 // import wrapWithFunctionChildComponent from 'view/libraries/wrap-with-function-child-component';
 // import wrapWithComponent from 'view/libraries/wrap-with-component';
-import CAControlPreviewImage from './images/ca-control/preview.png';
-import CDSPreviewImage from './images/cds/preview.png';
-import CLTPreviewImage from './images/clt/preview.png';
+import CAControlPreviewImage from './images/ca-control/preview.jpg';
+import CDSPreviewImage from './images/cds/preview.jpg';
+import CLTPreviewImage from './images/clt/preview.jpg';
 import PortfolioItem from './components/portfolo-item';
 import baseTheme from './theme.css';
 

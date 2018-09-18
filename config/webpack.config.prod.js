@@ -66,12 +66,9 @@ const webpackConfig = {
             loader: require.resolve('eslint-loader'),
           },
         ],
-        include: paths.appRoot,
+        include: paths.appSrc,
       },
       {
-        // "oneOf" will traverse all following loaders until one will
-        // match the requirements. When no loader matches it will fall
-        // back to the "file" loader at the end of the loader list.
         oneOf: [
           // "url" loader works like "file" loader except that it embeds assets
           // smaller than specified limit in bytes as data URLs to avoid requests.
@@ -85,14 +82,14 @@ const webpackConfig = {
           // Process JS with Babel.
           {
             test: /\.js$/,
-            include: paths.appRoot,
+            include: paths.appSrc,
             exclude: paths.appNodeModules,
             loader: require.resolve('babel-loader'),
           },
           // Process CSS (See the generateCSSLoaders function for more details)
           {
             test: /\.s?css$/,
-            include: [paths.appViewComponent, paths.reactToolbox],
+            include: [paths.appViewComponent],
             use: generateCSSLoaders({ modules: true })
           },
           {
@@ -151,6 +148,7 @@ const webpackConfig = {
     // copies static files to the output directory
     new CopyWebpackPlugin([
       { from: paths.appWebManifest },
+      paths.appPublic,
     ]),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
@@ -158,13 +156,6 @@ const webpackConfig = {
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
     }),
-    // Moment.js is an extremely popular library that bundles large locale files
-    // by default due to how Webpack interprets its code. This is a practical
-    // solution that requires the user to opt into importing specific locales.
-    // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
-    // You can remove this if you don't use Moment.js:
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-
     new BundleAnalyzerPlugin({
       analyzerMode: 'disabled',
       generateStatsFile: true
@@ -220,6 +211,12 @@ function generateCSSLoaders({ modules }) {
               'not ie < 11',
             ],
             flexbox: 'no-2009',
+            features: {
+              customProperties: {
+                preserve: true,
+                warnings: false
+              }
+            }
           }),
         ],
       },

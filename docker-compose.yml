@@ -33,9 +33,11 @@ services:
       - app
     volumes:
         - .:/usr/src/app
+    ports:
+      - "8888:8888"
     environment:
       PORT: 80
-      NODE_ENV: development
+      NODE_ENV: production
 networks:
   app:
 

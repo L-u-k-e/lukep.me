@@ -2,18 +2,23 @@ import * as Ramda from 'ramda';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { themr } from 'react-css-themr';
 import { Typography } from 'rmwc/Typography';
 import { Chip, ChipText, ChipSet } from 'rmwc/Chip';
 import { Button } from 'rmwc/Button';
+import { IconButton } from 'rmwc/IconButton';
 import { Icon } from 'rmwc/Icon';
 import { Grid, GridCell, GridInner } from 'rmwc/Grid';
 // import {  } from 'redux/action-creators';
-// import {  } from 'redux/selectors';
+import { getBrowser } from 'redux/selectors';
 import wrapWithFunctionChildComponent from 'view/libraries/wrap-with-function-child-component';
 // import wrapWithComponent from 'view/libraries/wrap-with-component';
+import GithubIcon from './components/github-icon';
 import baseTheme from './theme.css';
+import InstagramIcon from './components/instagram-icon';
+import LinkedInIcon from './components/linked-in-icon';
+import StackExchangeIcon from './components/stack-exchange-icon';
 
 
 
@@ -27,18 +32,32 @@ AboutView.propTypes = {
   theme: PropTypes.object.isRequired,
 
   // provideOnViewResume
-  onViewResume: PropTypes.func.isRequired
+  onViewResume: PropTypes.func.isRequired,
+
+  // provideSocialMediaNagigationCallbacks
+  onInstagramNav: PropTypes.func.isRequired,
+  onGithubNav: PropTypes.func.isRequired,
+  onStackExchangeNav: PropTypes.func.isRequired,
+  onLinkedInNav: PropTypes.func.isRequired,
+
+  // provideNarrowMode
+  narrowMode: PropTypes.bool.isRequired,
 };
 AboutView.defaultProps = {};
 function AboutView(props) {
   const {
     theme,
     className,
-    onViewResume
+    onViewResume,
+    onInstagramNav,
+    onLinkedInNav,
+    onGithubNav,
+    onStackExchangeNav,
+    narrowMode,
   } = props;
 
   return (
-    <div className={classNames(className, theme.aboutView)}>
+    <div className={classNames(className, theme.aboutView, { [theme.narrowMode]: narrowMode })}>
       <Grid className={theme.aboutContent}>
         <GridCell
           className={theme.header}
@@ -46,8 +65,8 @@ function AboutView(props) {
           tablet={8}
           desktop={12}
         >
-          <Typography use="headline4">
-            {'Hey, I\'m Luke'}
+          <Typography use="headline3">
+            Lucas Parzych
           </Typography>
         </GridCell>
 
@@ -162,15 +181,32 @@ function AboutView(props) {
             </ChipSet>
           </div>
 
-          <div className={theme.links}>
+          <div className={theme.socialLinks}>
+            <IconButton className={theme.socialIconButton} onClick={onInstagramNav}>
+              <InstagramIcon />
+            </IconButton>
+            <IconButton className={theme.socialIconButton} onClick={onLinkedInNav}>
+              <LinkedInIcon />
+            </IconButton>
+            <IconButton className={theme.socialIconButton} onClick={onGithubNav}>
+              <GithubIcon />
+            </IconButton>
+            <IconButton className={theme.socialIconButton} onClick={onStackExchangeNav}>
+              <StackExchangeIcon />
+            </IconButton>
+          </div>
+
+          <div className={theme.resumeAndWork}>
             <Button raised className={theme.linkButton} onClick={onViewResume}>
               Read My Resume
               <Icon className={theme.icon}>picture_as_pdf</Icon>
             </Button>
-            <Button className={theme.linkButton}>
-              View My Work
-              <Icon className={theme.icon}>arrow_downward</Icon>
-            </Button>
+            {!narrowMode && (
+              <Button className={theme.linkButton} onClick={() => window.scrollTo(0, window.innerHeight)}>
+                View My Work
+                <Icon className={theme.icon}>arrow_downward</Icon>
+              </Button>
+            )}
           </div>
         </GridCell>
       </Grid>
@@ -183,6 +219,12 @@ function AboutView(props) {
 
 
 const provideTheme = themr('AboutView', baseTheme);
+
+
+
+
+
+const provideNarrowMode = connect(state => ({ narrowMode: getBrowser(state).lessThan.smTablet }));
 
 
 
@@ -207,10 +249,39 @@ const provideOnViewResume = wrapWithFunctionChildComponent(OnViewResumeProvider)
 
 
 
+SocialMediaNavigationCallbacksProvider.propTypes = {
+  children: PropTypes.any.isRequired,
+};
+SocialMediaNavigationCallbacksProvider.defaultProps = {
+};
+function SocialMediaNavigationCallbacksProvider(props) {
+  const { children } = props;
+  return children({
+    onInstagramNav: Ramda.partial(navigate, ['https://www.instagram.com/lifesize.luke/']),
+    onLinkedInNav: Ramda.partial(navigate, ['https://www.linkedin.com/in/lucas-parzych']),
+    onGithubNav: Ramda.partial(navigate, ['https://github.com/L-u-k-e']),
+    onStackExchangeNav: Ramda.partial(navigate, ['https://stackoverflow.com/story/lukep']),
+  });
+
+  function navigate(link, event) {
+    window.open(link, '_blank');
+    // This is necessary. Otherwise 2 tabs open on desktop.
+    // IDK why exacty, I'd have to look into the RMWC IconButton impl to find out more.
+    event.stopPropagation();
+  }
+}
+const provideSocialMediaNavigationCallbacks = wrapWithFunctionChildComponent(SocialMediaNavigationCallbacksProvider);
+
+
+
+
+
 const AboutViewContainer = (
   Ramda.compose(
     provideTheme,
-    provideOnViewResume
+    provideOnViewResume,
+    provideSocialMediaNavigationCallbacks,
+    provideNarrowMode
   )(AboutView)
 );
 AboutViewContainer.displayName = 'AboutViewContainer';

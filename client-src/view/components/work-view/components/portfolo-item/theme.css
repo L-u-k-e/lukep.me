@@ -1,40 +1,47 @@
-.portfolioItem {
+.portfolioItemContainer {
   width: 100%;
-  max-width: 1600px;
-  margin: 160px 0px !important;
 
-  & .title {
-    display: block;
-    margin-bottom: 8px;
-  }
-  & .caption {
-    display: block;
-    margin-bottom: 24px;
-  }
-  & .description {
-    display: block;
-    margin-bottom: 24px;
+  &:not(.narrowMode) {
+    & .portfolioItem {
+      & .imageContainer {
+        padding: 24px;
+      }
+      & .details {
+        padding: 24px;
+      }
+    }
   }
 
-  & .tech {
-    margin-left: -8px;
-    margin-bottom: 24px;
-  }
+  & .portfolioItem {
+    max-width: 1600px;
 
-  & .previewImage {
-    width: 100%;
-    margin-top: -16px;
+    & .imageContainer {
+      & .previewImage {
+        width: 100%;
+        margin-top: -16px;
+      }
+    }
+
+    & .details {
+      & .title {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      & .caption {
+        display: block;
+        margin-bottom: 24px;
+      }
+
+      & .description {
+        display: block;
+        margin-bottom: 24px;
+      }
+
+      & .tech {
+        margin-left: -8px;
+        margin-bottom: 24px;
+      }
+    }
   }
-  /*display: flex;
-  align-items: flex-start;
-  flex-direction: row-reverse;
-  flex-wrap: wrap; */
-  /*& .previewImage {
-    flex: 1;
-    min-width: 250px;
-    width: 100%;
-  }
-  & .details {
-    flex: 1;
-  } */
 }

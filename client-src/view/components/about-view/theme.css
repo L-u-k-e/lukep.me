@@ -22,12 +22,22 @@
 
   & .techAndLinks {
     & .tech {
-      margin-bottom: 40px;
+      margin-bottom: 24px;
       & .chips {
         margin-left: -8px;
       }
     }
-    & .links {
+
+    & .socialLinks {
+      margin-bottom: 24px;
+      margin-left: -8px;
+      & .socialIconButton {
+        margin-right: 8px;
+        color: rgba(0,0,0,0.8);
+      }
+    }
+
+    & .resumeAndWork {
       & .linkButton {
         margin-bottom: 24px;
         & .icon {

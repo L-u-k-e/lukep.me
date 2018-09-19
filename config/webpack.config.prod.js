@@ -157,7 +157,7 @@ const webpackConfig = {
       fileName: 'asset-manifest.json',
     }),
     new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
+      analyzerMode: 'server',
       generateStatsFile: true
     }),
   ],

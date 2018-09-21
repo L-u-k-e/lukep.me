@@ -13,7 +13,7 @@ Build a new client bundle
 
 Build/ push a new docker image
 
-    docker build -f config/Dockerfile -t lukeparzych/lukep.me:latest
+    docker build -f config/Dockerfile -t lukeparzych/lukep.me:latest .
     docker push lukeparzych/lukep.me:latest
 
 

@@ -24,7 +24,7 @@ services:
       - "443:443"
       - "80:80"
   app-core:
-    image: node:10
+    image: lukeparzych/lukep.me:latest
     container_name: app-core
     command: [yarn, start]
     working_dir: /usr/src/app

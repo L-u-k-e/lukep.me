@@ -1,11 +1,11 @@
 version: "3.1"
 secrets:
   tls-key:
-    file: ./secrets/tls/dev/self-signed.key
+    file: ./secrets/tls/prod/lukep.me.key
   tls-cert:
-    file: ./secrets/tls/dev/self-signed.crt
+    file: ./secrets/tls/prod/lukep.me.crt
   tls-dhparam:
-    file: ./secrets/tls/dev/dhparam.pem
+    file: ./secrets/tls/prod/dhparam.pem
 services:
   app:
     image: nginx
@@ -34,7 +34,7 @@ services:
         - .:/usr/src/app
     environment:
       PORT: 80
-      NODE_ENV: "development"
+      NODE_ENV: "production"
 networks:
   app:
 
